@@ -1,0 +1,2 @@
+describe DockinStation do
+end
