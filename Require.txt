@@ -7,9 +7,12 @@
 # I'd like to see if a bike is working
 
 
-Object   |   Messages
+Object            |   Messages
+
 User
 
-Customer | find_by_surname
+Customer          | find_by_surname
 
-Object | Docking Station
+Docking Station   | release_bike
+
+Bike              | works
