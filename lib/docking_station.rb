@@ -16,11 +16,15 @@ class DockingStation
   end
 
   def dock(bike)
-    if @bike.length == @cap
-      raise StandardError, "to many bikes"
-    else
-      @bike << bike
-    end
+    @bike << bike unless full?
+  end
+end
+
+private
+def full?
+  if @bike.length == @cap
+    raise StandardError, "to many bikes"
+    return true
   end
 end
 
