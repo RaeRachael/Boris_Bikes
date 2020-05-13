@@ -30,7 +30,7 @@ describe DockingStation do
   end
 
   it "should raise an error when dock is called on full station" do
-    20.times { @station.dock(Bike.new) }
+    DockingStation::DEFAULT_CAPACITY.times { @station.dock(Bike.new) }
     expect{ @station.dock(Bike.new) }.to raise_error(StandardError, "to many bikes")
   end
 

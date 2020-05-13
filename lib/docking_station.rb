@@ -1,9 +1,10 @@
 class DockingStation
 
   attr_reader :bike
+  attr_reader :DEFAULT_CAPACITY
+  DEFAULT_CAPACITY = 20
 
   def initialize
-    @cap = 20
     @bike = []
   end
 
@@ -17,7 +18,7 @@ class DockingStation
 
   private
   def full?
-    if @bike.length == @cap
+    if @bike.length == DEFAULT_CAPACITY
       raise StandardError, "to many bikes"
       return true
     end
