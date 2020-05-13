@@ -4,22 +4,22 @@ class DockingStation
 
   def initialize
     @cap = 20
-    @bike = 0
+    @bike = []
   end
 
   def release_bike
-    if @bike > 0
-      @bike -= 1
-      return Bike.new
+    if @bike.length > 0
+      @bike.pop
+    else
+      raise StandardError, "no bike"
     end
-    raise StandardError, "no bike"
   end
 
   def dock(bike)
-    if @bike == @cap
+    if @bike.length == @cap
       raise StandardError, "to many bikes"
     else
-      @bike += 1
+      @bike << bike
     end
   end
 end
