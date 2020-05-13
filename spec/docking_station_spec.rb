@@ -34,4 +34,14 @@ describe DockingStation do
     expect{ @station.dock(Bike.new) }.to raise_error(StandardError, "to many bikes")
   end
 
+  it "should have DEFAULT_CAPACITY if no capcity is specified" do
+    expect(@station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+  end
+
+  [10,34,76].each do |num|
+    it "should have @capacity that it is initialized with" do
+      docking = DockingStation.new(num)
+      expect(docking.capacity).to eq(num)
+    end
+  end
 end
