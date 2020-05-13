@@ -8,23 +8,26 @@ class DockingStation
   end
 
   def release_bike
-    if @bike.length > 0
-      @bike.pop
-    else
-      raise StandardError, "no bike"
-    end
+    @bike.pop unless empty?
   end
 
   def dock(bike)
     @bike << bike unless full?
   end
-end
 
-private
-def full?
-  if @bike.length == @cap
-    raise StandardError, "to many bikes"
-    return true
+  private
+  def full?
+    if @bike.length == @cap
+      raise StandardError, "to many bikes"
+      return true
+    end
+  end
+
+  def empty?
+    if @bike.length <= 0
+      raise StandardError, "no bike"
+      return true
+    end
   end
 end
 
