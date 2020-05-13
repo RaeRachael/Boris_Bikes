@@ -4,7 +4,7 @@ class DockingStation
   DEFAULT_CAPACITY = 20
 
   def initialize(cap = DEFAULT_CAPACITY)
-    @bike = []
+    @bike = [] ## knowledge of bikes being broken or not
     @capacity = cap
   end
 
@@ -12,7 +12,7 @@ class DockingStation
     @bike.pop unless empty?
   end
 
-  def dock(bike)
+  def dock(bike) ## argument of wether broken or not
     @bike << bike unless full?
   end
 
