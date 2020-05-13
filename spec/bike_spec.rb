@@ -4,6 +4,8 @@ describe Bike do
     expect(Bike.new.respond_to?(:working?)).to eq(true)
   end
   it "should be be released from DockingStation" do
-    expect(DockingStation.new.release_bike.working?).to eq(true)
+    station = DockingStation.new
+    station.dock(Bike.new)
+    expect(station.release_bike.working?).to eq(true)
   end
 end
